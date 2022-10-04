@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BulkBook.Models.ViewModels
+namespace BulkBook.Models
 {
     public class ShoppingCart
     {
@@ -18,11 +18,11 @@ namespace BulkBook.Models.ViewModels
         public Product Product { get; set; }
         [Range(1, 1000, ErrorMessage = "Değer aralığı 1-1000 arası olmalıdır.")]
         public int Count { get; set; }
-        //public string ApplicationUserId { get; set; }
-        //[ForeignKey("ApplicationUserId")]
-        //[ValidateNever]
-        //public ApplicationUser ApplicationUser { get; set; }
-        [NotMapped]
+        public string ApplicationUserId { get; set; }
+        [ForeignKey("ApplicationUserId")]
+        [ValidateNever]
+        public ApplicationUser ApplicationUser { get; set; }
+        [NotMapped] 
         public double Price { get; set; }
 
     }

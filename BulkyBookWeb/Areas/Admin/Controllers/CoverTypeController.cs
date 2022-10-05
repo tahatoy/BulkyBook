@@ -2,13 +2,14 @@
 using BulkBook.DataAccess;
 using BulkBook.DataAccess.Repository.IRepository;
 using BulkBook.Models;
-
-
+using BulkBook.UtilityLayer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BulkBookWeb.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = SD.Role_Admin)]
     public class CoverTypeController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;

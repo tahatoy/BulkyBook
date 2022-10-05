@@ -1,6 +1,8 @@
 ﻿using BulkBook.DataAccess.Repository.IRepository;
 using BulkBook.Models;
 using BulkBook.Models.ViewModels;
+using BulkBook.UtilityLayer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -8,6 +10,7 @@ namespace BulkBookWeb.Controllers
 {
 
     [Area("Admin")]
+    [Authorize(Roles = SD.Role_Admin)]
     public class CompanyController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;

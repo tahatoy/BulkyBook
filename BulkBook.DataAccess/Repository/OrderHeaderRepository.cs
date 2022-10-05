@@ -24,6 +24,7 @@ namespace BulkBook.DataAccess.Repository
             _db.OrderHeaders.Update(obj);
         }
 
+        //Kullanıcadan id,sipariş durumu ve ödeme durumunu alır.
         public void UpdateStatus(int id, string orderStatus, string? paymentStatus = null)
         {
             var orderFromDb = _db.OrderHeaders.FirstOrDefault(u => u.Id == id);
@@ -42,6 +43,7 @@ namespace BulkBook.DataAccess.Repository
             var orderFromDb = _db.OrderHeaders.FirstOrDefault(u => u.Id == id);
 
             orderFromDb.SessionId = sessionId;
+            orderFromDb.PaymentDate=DateTime.Now;
             orderFromDb.PaymentIntentId= paymentIntentId;
 
         }
